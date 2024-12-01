@@ -14,6 +14,31 @@ from pathlib import Path
 import json
 import dj_database_url
 from os import environ
+import boto3
+from botocore.exceptions import ClientError
+
+def get_secret():
+
+    secret_name = "natal/djangodb/djangousersecret"
+    region_name = "us-east-2"
+
+    # Create a Secrets Manager client
+    session = boto3.session.Session()
+    client = session.client(
+        service_name='secretsmanager',
+        region_name=region_name
+    )
+
+    try:
+        get_secret_value_response = client.get_secret_value(
+            SecretId=secret_name
+        )
+    except ClientError as e:
+        # For a list of exceptions thrown, see
+        # https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html
+        raise e
+
+    secret = get_secret_value_response['SecretString']
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -78,9 +103,9 @@ WSGI_APPLICATION = "natal.wsgi.application"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 if "DATABASE_SECRET" in environ:
-    database_secret = environ.get("DATABASE_SECRET")
-    print(database_secret)
-    db_url = json.loads(database_secret)["natal/djangodb/djangousersecret"]
+    #database_secret = environ.get("DATABASE_SECRET")
+    #db_url = json.loads(database_secret)["natal/djangodb/djangousersecret"]
+    db_url = get_secret()
     DATABASES = {"default": dj_database_url.parse(db_url)}
 else:
     DATABASES = {"default": dj_database_url.parse("sqlite:///db.sqlite3")}
