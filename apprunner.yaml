@@ -14,7 +14,6 @@ build:
       - pip install typing_extensions
       - pip install whitenoise
       - pip install boto3
-      - pip install botocore
 run:
   runtime-version: 3.8.16
   command: sh startup.sh
