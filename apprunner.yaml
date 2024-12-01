@@ -18,7 +18,7 @@ run:
   runtime-version: 3.8.16
   command: sh startup.sh
   network:
-    port: 8000
+    port: 80
   secrets:
     - name: DATABASE_SECRET
       value-from: "arn:aws:secretsmanager:us-east-2:440744226538:secret:natal/djangodb/djangousersecret-H65Z5b"
