@@ -79,7 +79,8 @@ WSGI_APPLICATION = "natal.wsgi.application"
 
 if "DATABASE_SECRET" in environ:
     database_secret = environ.get("DATABASE_SECRET")
-    db_url = json.loads(database_secret)["djangousersecret"]
+    print(database_secret)
+    db_url = json.loads(database_secret)["natal/djangodb/djangousersecret"]
     DATABASES = {"default": dj_database_url.parse(db_url)}
 else:
     DATABASES = {"default": dj_database_url.parse("sqlite:///db.sqlite3")}
