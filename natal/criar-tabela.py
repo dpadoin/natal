@@ -1,6 +1,6 @@
 import csv
 from django.db import models
-from models import AmigoSecretoTeste2
+from .models import AmigoSecretoTeste2
 
 with open('./secreto/amigos.csv') as f:
         reader = csv.reader(f)
