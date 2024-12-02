@@ -13,7 +13,7 @@ build:
       - pip install sqlparse
       - pip install typing_extensions
       - pip install whitenoise
-      - pip install boto3
+      #- pip install boto3
 run:
   runtime-version: 3.8.16
   command: sh startup.sh
