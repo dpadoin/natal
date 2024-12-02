@@ -59,6 +59,7 @@ ALLOWED_HOSTS = [".awsapprunner.com", "169.254.175.250"]
 # Application definition
 
 INSTALLED_APPS = [
+    "natal.apps.SecretoConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
