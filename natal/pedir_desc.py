@@ -1,6 +1,6 @@
 import csv
 from django.db import models
-from secreto.models import AmigoSecretoTeste2
+from .models import AmigoSecretoTeste2
 
 import base64
 from email.mime.text import MIMEText

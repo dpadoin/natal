@@ -2,7 +2,7 @@
 from django.shortcuts import render, redirect
 from .forms import PessoaForm, EntradaForm, DescreverForm
 from django.db import models
-from secreto.models import Teste, AmigoSecretoTeste2
+from .models import Teste, AmigoSecretoTeste2
 
 def entrada(request):
         form = EntradaForm()
