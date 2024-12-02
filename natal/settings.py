@@ -106,7 +106,9 @@ if "DATABASE_SECRET" in environ:
     #database_secret = environ.get("DATABASE_SECRET")
     #db_url = json.loads(database_secret)["natal/djangodb/djangousersecret"]
     db_url = get_secret()
-    DATABASES = {"default": dj_database_url.parse(db_url)}
+    print(db_url,str(db_url))
+    #DATABASES = {"default": dj_database_url.parse(db_url)}
+    DATABASES = {"default": dj_database_url.parse(str(db_url))}
 else:
     DATABASES = {"default": dj_database_url.parse("sqlite:///db.sqlite3")}
 
