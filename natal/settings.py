@@ -102,14 +102,14 @@ WSGI_APPLICATION = "natal.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-if "DATABASE_SECRET" in environ:
-    database_secret = environ.get("DATABASE_SECRET")
-    db_url = json.loads(database_secret)["DATABASE_URL"]
-    #db_url = get_secret()
-    #DATABASES = {"default": dj_database_url.parse(db_url)}
-    DATABASES = {"default": dj_database_url.parse(str(db_url))}
-else:
-    DATABASES = {"default": dj_database_url.parse("sqlite:///db.sqlite3")}
+#if "DATABASE_SECRET" in environ:
+#    database_secret = environ.get("DATABASE_SECRET")
+#    db_url = json.loads(database_secret)["DATABASE_URL"]
+#    #db_url = get_secret()
+#    #DATABASES = {"default": dj_database_url.parse(db_url)}
+#    DATABASES = {"default": dj_database_url.parse(str(db_url))}
+#else:
+DATABASES = {"default": dj_database_url.parse("sqlite:///db.sqlite3")}
 
 
 # Password validation
