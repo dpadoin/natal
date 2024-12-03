@@ -10,6 +10,7 @@ def entrada(request):
 
 def formulario(request):
         req = request.GET
+        #req = request.POST
         getcha = req['chave']
         try:                
                 dados = AmigoSecretoTeste2.objects.get(chave=getcha)
