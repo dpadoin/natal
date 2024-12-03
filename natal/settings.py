@@ -110,7 +110,7 @@ WSGI_APPLICATION = "natal.wsgi.application"
 #    #DATABASES = {"default": dj_database_url.parse(db_url)}
 #    DATABASES = {"default": dj_database_url.parse(str(db_url))}
 #else:
-DATABASES = {"default": dj_database_url.parse("sqlite:///db.sqlite3")}
+#DATABASES = {"default": dj_database_url.parse("sqlite:///db.sqlite3")}
 
 
 # Password validation
